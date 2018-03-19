@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>EmployeeBonus.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(98,151,85); font-style: italic; }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); }
+.s3 { color: rgb(128,128,128); }
+.s4 { color: rgb(104,151,187); }
+.s5 { color: rgb(106,135,89); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+EmployeeBonus.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<a name="l1"><span class="ln">1    </span></a><span class="s0">/** 
+<a name="l2"><span class="ln">2    </span></a> * Created by user1 on 11/2/16. 
+<a name="l3"><span class="ln">3    </span></a> */</span><span class="s1"> 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s2">import </span><span class="s1">javax.swing.*</span><span class="s2">;</span><span class="s1"> 
+<a name="l5"><span class="ln">5    </span></a></span><span class="s2">public class </span><span class="s1">EmployeeBonus { 
+<a name="l6"><span class="ln">6    </span></a>    </span><span class="s2">public static void </span><span class="s1">main(String args[]) { 
+<a name="l7"><span class="ln">7    </span></a>        </span><span class="s3">// Declare and initialize variables here.</span><span class="s1"> 
+<a name="l8"><span class="ln">8    </span></a>        String employeeName</span><span class="s2">;</span><span class="s1"> 
+<a name="l9"><span class="ln">9    </span></a>        </span><span class="s2">double </span><span class="s1">numTransactions</span><span class="s2">;</span><span class="s1"> 
+<a name="l10"><span class="ln">10   </span></a>        String transactString</span><span class="s2">;</span><span class="s1"> 
+<a name="l11"><span class="ln">11   </span></a>        </span><span class="s2">double </span><span class="s1">numShifts</span><span class="s2">;</span><span class="s1"> 
+<a name="l12"><span class="ln">12   </span></a>        String shiftString</span><span class="s2">;</span><span class="s1"> 
+<a name="l13"><span class="ln">13   </span></a>        </span><span class="s2">double </span><span class="s1">dollarValue</span><span class="s2">;</span><span class="s1"> 
+<a name="l14"><span class="ln">14   </span></a>        String dollarString</span><span class="s2">;</span><span class="s1"> 
+<a name="l15"><span class="ln">15   </span></a>        </span><span class="s2">double </span><span class="s1">bonus</span><span class="s2">;</span><span class="s1"> 
+<a name="l16"><span class="ln">16   </span></a>        </span><span class="s2">double </span><span class="s1">production</span><span class="s2">;</span><span class="s1"> 
+<a name="l17"><span class="ln">17   </span></a>        </span><span class="s2">final double </span><span class="s1">BONUS_1 = </span><span class="s4">50.00</span><span class="s2">;</span><span class="s1"> 
+<a name="l18"><span class="ln">18   </span></a>        </span><span class="s2">final double </span><span class="s1">BONUS_2 = </span><span class="s4">75.00</span><span class="s2">;</span><span class="s1"> 
+<a name="l19"><span class="ln">19   </span></a>        </span><span class="s2">final double </span><span class="s1">BONUS_3 = </span><span class="s4">100.00</span><span class="s2">;</span><span class="s1"> 
+<a name="l20"><span class="ln">20   </span></a>        </span><span class="s2">final double </span><span class="s1">BONUS_4 = </span><span class="s4">200.00</span><span class="s2">;</span><span class="s1"> 
+<a name="l21"><span class="ln">21   </span></a> 
+<a name="l22"><span class="ln">22   </span></a> 
+<a name="l23"><span class="ln">23   </span></a>        </span><span class="s3">// This is the work done in the housekeeping() method</span><span class="s1"> 
+<a name="l24"><span class="ln">24   </span></a>        employeeName = JOptionPane.showInputDialog(</span><span class="s5">&quot;Enter employee's name: &quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+<a name="l25"><span class="ln">25   </span></a>        shiftString = JOptionPane.showInputDialog(</span><span class="s5">&quot;Enter number of shifts: &quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+<a name="l26"><span class="ln">26   </span></a>        transactString = JOptionPane.showInputDialog(</span><span class="s5">&quot;Enter number of transactions: &quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+<a name="l27"><span class="ln">27   </span></a>        dollarString = JOptionPane.showInputDialog(</span><span class="s5">&quot;Enter transactions dollar value: &quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+<a name="l28"><span class="ln">28   </span></a> 
+<a name="l29"><span class="ln">29   </span></a>        numShifts = Double.parseDouble(shiftString)</span><span class="s2">;</span><span class="s1"> 
+<a name="l30"><span class="ln">30   </span></a>        numTransactions = Double.parseDouble(transactString)</span><span class="s2">;</span><span class="s1"> 
+<a name="l31"><span class="ln">31   </span></a>        dollarValue = Double.parseDouble(dollarString)</span><span class="s2">;</span><span class="s1"> 
+<a name="l32"><span class="ln">32   </span></a> 
+<a name="l33"><span class="ln">33   </span></a>        </span><span class="s3">// Write your code here</span><span class="s1"> 
+<a name="l34"><span class="ln">34   </span></a>        production = (numTransactions / dollarValue) / numShifts</span><span class="s2">;</span><span class="s1"> 
+<a name="l35"><span class="ln">35   </span></a>        </span><span class="s2">if </span><span class="s1">(production &gt;= </span><span class="s4">30</span><span class="s1">) 
+<a name="l36"><span class="ln">36   </span></a>            System.out.println(</span><span class="s5">&quot;You should go have a chat with your manager&quot;</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+<a name="l37"><span class="ln">37   </span></a>        </span><span class="s2">if </span><span class="s1">(production &lt;= </span><span class="s4">30</span><span class="s1">) 
+<a name="l38"><span class="ln">38   </span></a>            bonus = BONUS_1</span><span class="s2">;</span><span class="s1"> 
+<a name="l39"><span class="ln">39   </span></a>        </span><span class="s2">if </span><span class="s1">(production &gt; </span><span class="s4">30 </span><span class="s1">&amp;&amp; production &lt;= </span><span class="s4">69</span><span class="s1">) 
+<a name="l40"><span class="ln">40   </span></a>            bonus = BONUS_2</span><span class="s2">;</span><span class="s1"> 
+<a name="l41"><span class="ln">41   </span></a>        </span><span class="s2">if </span><span class="s1">(production &gt; </span><span class="s4">69 </span><span class="s1">&amp;&amp; production &lt;= </span><span class="s4">199</span><span class="s1">) 
+<a name="l42"><span class="ln">42   </span></a>            bonus = BONUS_3</span><span class="s2">;</span><span class="s1"> 
+<a name="l43"><span class="ln">43   </span></a>        </span><span class="s2">if </span><span class="s1">(production &gt;= </span><span class="s4">200</span><span class="s1">) 
+<a name="l44"><span class="ln">44   </span></a>            bonus = BONUS_4</span><span class="s2">;</span><span class="s1"> 
+<a name="l45"><span class="ln">45   </span></a>         
+<a name="l46"><span class="ln">46   </span></a> 
+<a name="l47"><span class="ln">47   </span></a>        </span><span class="s3">// Output.</span><span class="s1"> 
+<a name="l48"><span class="ln">48   </span></a>                System.out.println(</span><span class="s5">&quot;Employee Name: &quot; </span><span class="s1">+ employeeName)</span><span class="s2">;</span><span class="s1"> 
+<a name="l49"><span class="ln">49   </span></a>                System.out.println(</span><span class="s5">&quot;Employee Bonus: $&quot;</span><span class="s1">+ bonus)</span><span class="s2">;</span><span class="s1"> 
+<a name="l50"><span class="ln">50   </span></a>                System.exit(</span><span class="s4">0</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+<a name="l51"><span class="ln">51   </span></a>            } 
+<a name="l52"><span class="ln">52   </span></a>        } 
+<a name="l53"><span class="ln">53   </span></a></span></pre>
+</body>
+</html>

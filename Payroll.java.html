@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Payroll.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(98,151,85); font-style: italic; }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); }
+.s3 { color: rgb(128,128,128); }
+.s4 { color: rgb(104,151,187); }
+.s5 { color: rgb(106,135,89); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Payroll.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">/** 
+ * Created by Gabriel Rosales on 11/1/16. 
+ */</span><span class="s1"> 
+ 
+</span><span class="s2">public class </span><span class="s1">Payroll 
+{ 
+    </span><span class="s2">public static void </span><span class="s1">main(String args[]) 
+    { 
+        </span><span class="s2">double </span><span class="s1">salary</span><span class="s2">,</span><span class="s1">stateTax</span><span class="s2">, </span><span class="s1">federalTax</span><span class="s2">,</span><span class="s1">numDependents</span><span class="s2">,</span><span class="s1">dependentCredit</span><span class="s2">, </span><span class="s1">totalWithholding</span><span class="s2">, </span><span class="s1">takeHomePay</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s3">//Employee info</span><span class="s1"> 
+        numDependents = </span><span class="s4">2</span><span class="s2">;</span><span class="s1"> 
+        salary = </span><span class="s4">1250</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s3">//Taxes</span><span class="s1"> 
+            stateTax = salary * </span><span class="s4">0.065</span><span class="s2">;</span><span class="s1"> 
+            federalTax = salary * </span><span class="s4">0.28</span><span class="s2">;</span><span class="s1"> 
+            totalWithholding = (stateTax + federalTax)</span><span class="s2">;</span><span class="s1"> 
+        </span><span class="s3">//deductions</span><span class="s1"> 
+        dependentCredit = (numDependents * </span><span class="s4">0.025</span><span class="s1">) * salary</span><span class="s2">;</span><span class="s1"> 
+ 
+        </span><span class="s3">//final pay</span><span class="s1"> 
+        takeHomePay = (salary - totalWithholding) + dependentCredit</span><span class="s2">;</span><span class="s1"> 
+ 
+        System.out.println(</span><span class="s5">&quot;State Tax: $&quot; </span><span class="s1">+ stateTax)</span><span class="s2">;</span><span class="s1"> 
+        System.out.println(</span><span class="s5">&quot;Federal Tax: $&quot; </span><span class="s1">+ federalTax)</span><span class="s2">;</span><span class="s1"> 
+        System.out.println(</span><span class="s5">&quot;Dependents: $&quot; </span><span class="s1">+ dependentCredit)</span><span class="s2">;</span><span class="s1"> 
+        System.out.println(</span><span class="s5">&quot;Salary: $&quot; </span><span class="s1">+ salary)</span><span class="s2">;</span><span class="s1"> 
+        System.out.println(</span><span class="s5">&quot;Take Home Pay: $&quot; </span><span class="s1">+ takeHomePay)</span><span class="s2">;</span><span class="s1"> 
+        System.exit(</span><span class="s4">0</span><span class="s1">)</span><span class="s2">;</span><span class="s1"> 
+    } 
+}</span></pre>
+</body>
+</html>

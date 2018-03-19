@@ -1,0 +1,185 @@
+<html>
+<head>
+<title>Generator.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #6da0a1; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,153,0); font-weight: bold; }
+.s1 { color: rgb(155,194,142); }
+.s2 { color: rgb(255,255,255); font-weight: bold; }
+.s3 { color: rgb(133,205,0); font-weight: bold; }
+.s4 { color: rgb(155,194,142); font-weight: bold; }
+.s5 { color: rgb(255,102,102); }
+.s6 { color: rgb(0,255,0); font-weight: bold; }
+.s7 { color: rgb(249,113,187); }
+</style>
+</head>
+<BODY BGCOLOR="#404040">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Generator.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">from </span><span class="s1">random </span><span class="s0">import </span><span class="s1">seed, shuffle 
+ 
+passphrase </span><span class="s2">= </span><span class="s3">'My secret passphrase'</span><span class="s1"> 
+seed</span><span class="s4">(</span><span class="s1">passphrase</span><span class="s4">)</span><span class="s1"> 
+ 
+</span><span class="s5"># Codes that were already in use.</span><span class="s1"> 
+used </span><span class="s2">= </span><span class="s3">'''</span><span class="s6">\ 
+</span><span class="s3">3F81 
+36D4 
+31BC 
+30A7 
+36C4 
+370B 
+381D 
+32BC 
+334D 
+369A 
+39B0 
+315C 
+30B4 
+396B 
+345C 
+32AC 
+34D5 
+371A 
+323A 
+309D 
+32C8 
+333D 
+349B 
+3C62 
+3A45 
+345A 
+369D 
+3D41 
+3C58 
+34CD 
+39A8 
+32AD 
+34A6 
+3D78 
+371C 
+355A 
+3AB9 
+377D 
+312D 
+306B 
+3BB9 
+3CC7 
+377C 
+31A9 
+35AD 
+381B 
+304D 
+35AC 
+371D 
+3D22 
+399A 
+305D 
+31A2 
+36D8 
+39D0 
+34A1 
+3798 
+34B9 
+34AC 
+32BD 
+3B29 
+39CC 
+3045 
+31DC 
+3A2B 
+3C73 
+34D9 
+37BC 
+347B 
+3BB0 
+31DE 
+3D25 
+36BC 
+387B 
+38A1 
+3C95 
+3D09 
+3B11 
+3D27 
+3B36 
+3A46 
+3D52 
+3610 
+3BA7 
+38AA 
+369B 
+36AC 
+325F 
+3BB4 
+331B 
+3C04 
+3AA9 
+35CB 
+302C 
+345B 
+3AC9 
+367D 
+37B0 
+34BC 
+36CD 
+30AB 
+36DA 
+334A 
+32CB 
+301B 
+345D 
+35B9 
+391A 
+3B61 
+3C94 
+3AA2 
+37A0 
+3AD9 
+32C0 
+346B 
+3B2A 
+3A10 
+365D 
+3B20 
+3C65 
+3A04 
+38A3 
+34A9 
+'''</span><span class="s1"> 
+</span><span class="s5"># Convert to a set of strings</span><span class="s1"> 
+used </span><span class="s2">= </span><span class="s1">set</span><span class="s4">(</span><span class="s1">used.splitlines</span><span class="s4">())</span><span class="s1"> 
+ 
+</span><span class="s5"># The index of the next number to generate is stored in this file</span><span class="s1"> 
+fname </span><span class="s2">= </span><span class="s3">'nextindex.txt'</span><span class="s1"> 
+ 
+</span><span class="s0">try</span><span class="s2">:</span><span class="s1"> 
+    </span><span class="s0">with </span><span class="s1">open</span><span class="s4">(</span><span class="s1">fname</span><span class="s4">) </span><span class="s0">as </span><span class="s1">f</span><span class="s2">:</span><span class="s1"> 
+        idx </span><span class="s2">= </span><span class="s1">int</span><span class="s4">(</span><span class="s1">f.read</span><span class="s4">())</span><span class="s1"> 
+</span><span class="s0">except </span><span class="s1">IOError</span><span class="s2">:</span><span class="s1"> 
+    idx </span><span class="s2">= </span><span class="s7">0</span><span class="s1"> 
+ 
+</span><span class="s0">print</span><span class="s4">(</span><span class="s3">'Using index'</span><span class="s1">, idx</span><span class="s4">)</span><span class="s1"> 
+ 
+allnums </span><span class="s2">= </span><span class="s1">list</span><span class="s4">(</span><span class="s1">range</span><span class="s4">(</span><span class="s7">0x10000</span><span class="s4">))</span><span class="s1"> 
+shuffle</span><span class="s4">(</span><span class="s1">allnums</span><span class="s4">)</span><span class="s1"> 
+ 
+</span><span class="s5"># Search for the next code that's not in the `used` set</span><span class="s1"> 
+</span><span class="s0">while </span><span class="s1">True</span><span class="s2">:</span><span class="s1"> 
+    hexcode </span><span class="s2">= </span><span class="s1">format</span><span class="s4">(</span><span class="s1">allnums</span><span class="s2">[</span><span class="s1">idx</span><span class="s2">]</span><span class="s1">, </span><span class="s3">'04x'</span><span class="s4">)</span><span class="s1"> 
+    idx </span><span class="s2">+= </span><span class="s7">1</span><span class="s1"> 
+    </span><span class="s0">if </span><span class="s1">hexcode </span><span class="s0">not in </span><span class="s1">used</span><span class="s2">:</span><span class="s1"> 
+        </span><span class="s0">print</span><span class="s4">(</span><span class="s3">'Code:'</span><span class="s1">, hexcode</span><span class="s4">)</span><span class="s1"> 
+        </span><span class="s0">break</span><span class="s1"> 
+ 
+</span><span class="s5"># Save the next index</span><span class="s1"> 
+</span><span class="s0">with </span><span class="s1">open</span><span class="s4">(</span><span class="s1">fname, </span><span class="s3">'w'</span><span class="s4">) </span><span class="s0">as </span><span class="s1">f</span><span class="s2">:</span><span class="s1"> 
+    </span><span class="s0">print</span><span class="s4">(</span><span class="s3">'Saving index'</span><span class="s1">, idx</span><span class="s4">)</span><span class="s1"> 
+    f.write</span><span class="s4">(</span><span class="s1">str</span><span class="s4">(</span><span class="s1">idx</span><span class="s4">))</span></pre>
+</body>
+</html>
